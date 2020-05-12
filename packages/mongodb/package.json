@@ -1,0 +1,30 @@
+{
+  "name": "@appsignal/mongodb",
+  "version": "0.3.2",
+  "main": "dist/index",
+  "types": "dist/index",
+  "license": "MIT",
+  "dependencies": {
+    "@appsignal/nodejs": "^0.3.2",
+    "shimmer": "^1.2.1",
+    "tslib": "^1.11.1"
+  },
+  "peerDependencies": {
+    "mongodb": ">= 3.3.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json -w --preserveWatchOutput",
+    "clean": "rimraf dist coverage",
+    "link:npm": "npm link",
+    "link:yarn": "yarn link",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
