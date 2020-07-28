@@ -34,7 +34,11 @@ export function getRequestHandler<T extends NextServer>(
 
     if (span) {
       const routes = app.router.dynamicRoutes || []
-      const matched = routes.filter(el => el.match(pathname))[0]
+      let matched = routes.filter(el => el.match(pathname))[0]
+
+      // Match with pages with no dynamic routes
+      if (app.pagesManifest[pathname] !== undefined)
+        matched = { page: pathname }
 
       // passing { debug: true } to the `Appsignal` constructor will log
       // data about the current route to the console. don't rely on this
