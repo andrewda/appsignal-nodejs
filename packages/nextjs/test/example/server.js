@@ -1,6 +1,6 @@
 // ENSURE APPSIGNAL IS THE FIRST THING TO BE REQUIRED/IMPORTED
 // INTO YOUR APP!
-const { Appsignal } = require("../../../../nodejs")
+const { Appsignal } = require("../../../nodejs")
 
 const appsignal = new Appsignal({
   active: true,
@@ -8,7 +8,7 @@ const appsignal = new Appsignal({
   apiKey: "<YOUR API KEY>"
 })
 
-const { getRequestHandler } = require("../../../../nextjs")
+const { getRequestHandler } = require("../../../nextjs")
 
 const url = require("url")
 const next = require("next")
