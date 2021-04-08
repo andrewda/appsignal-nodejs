@@ -5,7 +5,7 @@ RSpec.describe "Next.js" do
     Dir.chdir File.join(__dir__, 'example')
     read, write = IO.pipe
 
-    pid = spawn("node server.js", out: w)
+    pid = spawn("node server.js", out: write)
     read.each do |line|
       break if line =~ /Ready on/
     end
