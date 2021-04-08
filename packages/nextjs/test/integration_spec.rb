@@ -13,7 +13,7 @@ RSpec.describe "Next.js" do
     end
   end
 
-  it "works" do
+  it "renders the index page" do
     uri = URI('http://localhost:3000/')
     expect(Net::HTTP.get(uri)).to match(/Welcome to .+Next\.js!/)
   end
