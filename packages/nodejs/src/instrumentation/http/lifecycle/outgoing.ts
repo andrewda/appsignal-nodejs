@@ -41,8 +41,13 @@ function optionsToOriginString(
     hostname = parsed.hostname ?? hostname
   } else {
     // is a `RequestOptions` object
-    protocol = options.protocol ?? protocol
-    hostname = options.hostname ?? hostname
+    if (options.protocol) {
+      protocol = options.protocol
+    } else if (options.port === 443) {
+      protocol = "https:"
+    }
+
+    hostname = options.hostname ?? options.host ?? hostname
   }
 
   return `${protocol}//${hostname}`
